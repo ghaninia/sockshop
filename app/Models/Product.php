@@ -15,8 +15,23 @@ class Product extends Model
         "description"
     ];
 
+    public function files()
+    {
+        return $this->morphMany(File::class, "fileable");
+    }
+
     public function variances()
     {
         return $this->hasMany(Variance::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

@@ -165,10 +165,14 @@ return [
         /*
          * Package Service Providers...
          */
+        Shetabit\Payment\Provider\PaymentServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class ,
 
         /*
          * Application Service Providers...
          */
+
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -226,7 +230,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Payment' => Shetabit\Payment\Facade\Payment::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
-    ],
-
+    ]
 ];

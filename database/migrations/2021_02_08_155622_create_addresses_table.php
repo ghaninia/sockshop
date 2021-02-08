@@ -6,24 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAddressesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("province_id");
+            $table->unsignedBigInteger("city_id");
+            $table->text("address")->nullable();
+            $table->text("postal_code")->nullable();
+            $table->string("phone")->nullable();
+            $table->string("national_code")->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('addresses');

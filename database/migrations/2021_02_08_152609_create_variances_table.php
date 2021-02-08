@@ -15,6 +15,8 @@ class CreateVariancesTable extends Migration
             $table->string("tooltip")->nullable();
             $table->float("price", 20, 2);
             $table->timestamps();
+
+            $table->foreign("product_id")->on("products")->onDelete("cascade")->onUpdate("cascade") ;
         });
     }
 
