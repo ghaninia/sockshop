@@ -9,16 +9,5 @@ return [
         "socks" ,
         "sock"
     ] ,
-    'size' => [
-        'full' => [
-            "H" => NULL,
-            "W" => NULL
-        ],
-        'thumbnail' => [
-            "H" => 200,
-            "W" => 200,
-        ],
-    ],
-    'disk' => 'local',
     "preview" => "assets/dashboard/images/preview.svg",
 ] ;

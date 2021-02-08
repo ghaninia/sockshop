@@ -55,8 +55,7 @@ class File extends Model
 
     public static function put( $item , $filename , $usage )
     {
-        $disk = config('site.disk') ;
-        $uploads = Attach::disk($disk)->put($filename , $usage) ;
+        $uploads = Attach::disk()->put($filename , $usage) ;
         if (is_array($uploads) && !empty($uploads))
         {
             $item->files()->createMany($uploads) ;
