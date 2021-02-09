@@ -14,8 +14,8 @@ class CreateCategoryProductTable extends Migration
             $table->unsignedBigInteger("category_id") ;
             $table->unsignedBigInteger("product_id") ;
 
-            $table->foreign("category_id")->on("categories")->onDelete("cascade")->onUpdate("cascade") ;
-            $table->foreign("product_id")->on("products")->onDelete("cascade")->onUpdate("cascade") ;
+            // $table->foreign("category_id")->on("categories")->onDelete("cascade")->onUpdate("cascade") ;
+            // $table->foreign("product_id")->on("products")->onDelete("cascade")->onUpdate("cascade") ;
         });
     }
 

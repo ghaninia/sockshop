@@ -10,11 +10,17 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        "name" ,
+        "name",
         "description"
-    ] ;
+    ];
 
-    public function products(){
-        return $this->belongsToMany( Product::class ) ;
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function files()
+    {
+        return $this->morphMany(File::class, "fileable");
     }
 }

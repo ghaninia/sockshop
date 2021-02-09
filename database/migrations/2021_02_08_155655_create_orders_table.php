@@ -15,9 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("address_id") ;
-            $table->unsignedInteger("product_id") ;
-            $table->unsignedBigInteger("variance_id") ;
+            $table->unsignedBigInteger("address_id")->index()  ;
+            $table->unsignedInteger("product_id")->index()  ;
+            $table->unsignedBigInteger("variance_id")->index()  ;
              //* دریافت قیمت های واریانسی *//
             $table->string("fullname") ;
             $table->string("mobile") ;
@@ -30,8 +30,8 @@ class CreateOrdersTable extends Migration
             $table->string("post_trackinged_at")->nullable() ;
             $table->timestamps();
 
-            $table->foreign("product_id")->on("products")->onDelete("cascade")->onUpdate("cadcade") ;
-            $table->foreign("variance_id")->on("variances")->onDelete("cascade")->onUpdate("cadcade") ;
+            // $table->foreign("product_id")->on("products")->onDelete("cascade")->onUpdate("cadcade") ;
+            // $table->foreign("variance_id")->on("variances")->onDelete("cascade")->onUpdate("cadcade") ;
         });
     }
 

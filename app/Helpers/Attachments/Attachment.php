@@ -3,6 +3,8 @@
 namespace App\Helpers\Attachments;
 
 use App\Helpers\Attachments\Traits\Computing;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Image;
 
@@ -59,7 +61,7 @@ abstract class Attachment
             foreach ($this->formats as  $format => $items) {
                 foreach ($items as $item) {
                     if ($file->getClientMimetype() === $item) {
-                        $this->generate($file, $format, $usage);
+                        return $this->generate($file, $format, $usage);
                     }
                 }
             }
@@ -67,8 +69,7 @@ abstract class Attachment
         return FALSE;
     }
 
-
-    private function generate($file, $format, $usage)
+    private function generate($file, string $format, string $usage): array
     {
         $name = $this->generateName($file);
         $paths = [];
@@ -105,8 +106,7 @@ abstract class Attachment
             case "file": {
                     $path = $this->makeFolder($this->disk, $format);
                     $savingPath = $path . DIRECTORY_SEPARATOR . $name;
-                    dd($savingPath) ;
-                    // $this->disk->put( $savingPath , $file);
+                    $this->disk->putFileAs($path, $file, $name);
                     $paths[] = [
                         'size' => $file->getSize(),
                         'format' => $format,
@@ -117,6 +117,22 @@ abstract class Attachment
                     break;
                 }
         }
-        dd($paths);
+        return $paths;
+    }
+
+    public function remove(Model $file): bool
+    {
+        $url = str_replace(DIRECTORY_SEPARATOR, "/", $file->url);
+        return $this->disk->delete($url);
+    }
+
+    public static function show(Collection $items): array
+    {
+        $links = [];
+        foreach ($items as $item) {
+            $link = Storage::disk($item->disk)->url($item->url);
+            $links[] = str_replace(DIRECTORY_SEPARATOR, "/", $link);
+        }
+        return $links;
     }
 }

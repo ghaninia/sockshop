@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Guest ;
 
-use App\Helpers\Attachments\PublicDiskAttachment;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\File;
+use Faker\Generator as Faker;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -14,8 +16,8 @@ class MainController extends Controller
         return view('guest.main');
     }
 
-    public function store(Request $request , PublicDiskAttachment $attachment )
+    public function store(Request $request , Faker $faker )
     {
-        return $attachment->upload("test" , "pic");
+       
     }
 }

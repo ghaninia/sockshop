@@ -10,13 +10,13 @@ class CreateVariancesTable extends Migration
     {
         Schema::create('variances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("product_id");
+            $table->unsignedBigInteger("product_id")->index();
             $table->string("title");
             $table->string("tooltip")->nullable();
             $table->float("price", 20, 2);
             $table->timestamps();
 
-            $table->foreign("product_id")->on("products")->onDelete("cascade")->onUpdate("cascade") ;
+            // $table->foreign("product_id")->on("products")->onDelete("cascade")->onUpdate("cascade");
         });
     }
 
