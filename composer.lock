@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1aa68ccd4a1f313f33f8d40bbfb2bff1",
+    "content-hash": "7ff9aa51198ca3b472001d1dbcb248a1",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -664,6 +664,53 @@
                 }
             ],
             "time": "2020-10-22T13:57:20+00:00"
+        },
+        {
+            "name": "ghaninia/captcha",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ghaninia/captcha.git",
+                "reference": "327e28cf9b15c5c0b346f1f4bfd878ffad6424dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ghaninia/captcha/zipball/327e28cf9b15c5c0b346f1f4bfd878ffad6424dd",
+                "reference": "327e28cf9b15c5c0b346f1f4bfd878ffad6424dd",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "GhaniniaIR\\Captcha\\CaptchaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GhaniniaIR\\Captcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amin Ghaninia",
+                    "email": "info@ghaninia.ir"
+                }
+            ],
+            "description": "minimum captcha package",
+            "support": {
+                "issues": "https://github.com/ghaninia/captcha/issues",
+                "source": "https://github.com/ghaninia/captcha/tree/v0.1.0"
+            },
+            "time": "2020-12-16T07:08:20+00:00"
         },
         {
             "name": "graham-campbell/result-type",

@@ -168,6 +168,7 @@ return [
         Shetabit\Payment\Provider\PaymentServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class ,
+        GhaniniaIR\Captcha\CaptchaServiceProvider::class ,
 
         /*
          * Application Service Providers...
@@ -233,6 +234,5 @@ return [
         'Payment' => Shetabit\Payment\Facade\Payment::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         'Image' => Intervention\Image\Facades\Image::class
-
     ]
 ];
