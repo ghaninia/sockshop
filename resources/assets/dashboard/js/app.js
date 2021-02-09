@@ -6,7 +6,6 @@ window.$ = window.jQuery = require('jquery');
 require("./plugins/gallery");
 window.axios = require('axios');
 
-
 if (config.token) {
     window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = config.token;
@@ -16,7 +15,6 @@ if (config.token) {
         }
     });
 }
-
 $(function(){
     $(".picture").gallery({
         el: "picture",

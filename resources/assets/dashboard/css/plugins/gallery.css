@@ -7,6 +7,10 @@
     min-height: 125px;
 }
 
+.__galleries .hidden {
+    display : none !important
+}
+
 .__galleries .filed {
     display: flex;
     align-items: center;
@@ -16,10 +20,10 @@
     right: 10px;
     background: #eee;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     oveflow: hidden;
-    font-size: 30px;
+    font-size: 10px;
     transition: all .3s ease;
     z-index: 1
 }
@@ -31,7 +35,7 @@
 }
 
 .__galleries .filed:hover {
-    background-color: var(--default-color);
+    background-color: #bababa ;
     color: #fff;
 }
 
@@ -92,9 +96,9 @@
     position: absolute;
     width: 100px;
     height: 40px;
-    background: linear-gradient(45deg, var(--default-color), var(--default-color-focus));
-    font-size: 15px;
-    color: #fff;
+    background: linear-gradient(45deg, #eee , #fafafa );
+    font-size: 12px;
+    color: #000 ;
     text-align: center;
     line-height: 40px;
     overflow: hidden;
@@ -108,6 +112,8 @@
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
+    margin : 0 !important ;
+    padding : 0 !important
 }
 
 .__galleries ul.import li span {
