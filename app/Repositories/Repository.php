@@ -12,21 +12,6 @@ abstract class Repository
 
     abstract public function model();
 
-    public function all()
-    {
-        return $this->model->orderBy("id", "desc")->get();
-    }
-
-    public function paginate($limit = 15)
-    {
-        return $this->model->orderBy("id", "desc")->paginate($limit);
-    }
-
-    public function getBy($col, $value, $limit = 15)
-    {
-        return $this->model->where($col, $value)->limit($limit)->get();
-    }
-
     public function create(array $data)
     {
         return $this->model->create($data);

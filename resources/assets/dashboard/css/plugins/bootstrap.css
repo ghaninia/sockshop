@@ -2148,44 +2148,6 @@ textarea.form-control {
     margin-left: 0
 }
 
-.valid-feedback {
-    display: none;
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #28a745
-}
-
-.valid-tooltip {
-    position: absolute;
-    top: 100%;
-    z-index: 5;
-    display: none;
-    max-width: 100%;
-    padding: .25rem .5rem;
-    margin-top: .1rem;
-    font-size: .875rem;
-    line-height: 1.5;
-    color: #fff;
-    background-color: rgba(40, 167, 69, .9);
-    border-radius: .25rem
-}
-
-.form-control.is-valid,
-.was-validated .form-control:valid {
-    border-color: #28a745;
-    padding-right: calc(1.5em + .75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: center right calc(.375em + .1875rem);
-    background-size: calc(.75em + .375rem) calc(.75em + .375rem)
-}
-
-.form-control.is-valid:focus,
-.was-validated .form-control:valid:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25)
-}
 
 .form-control.is-valid~.valid-feedback,
 .form-control.is-valid~.valid-tooltip,
@@ -2198,19 +2160,6 @@ textarea.form-control {
 textarea.form-control.is-valid {
     padding-right: calc(1.5em + .75rem);
     background-position: top calc(.375em + .1875rem) right calc(.375em + .1875rem)
-}
-
-.custom-select.is-valid,
-.was-validated .custom-select:valid {
-    border-color: #28a745;
-    padding-right: calc((1em + .75rem) * 3 / 4 + 1.75rem);
-    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem)
-}
-
-.custom-select.is-valid:focus,
-.was-validated .custom-select:valid:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25)
 }
 
 .custom-select.is-valid~.valid-feedback,
@@ -2316,10 +2265,10 @@ textarea.form-control.is-valid {
 .form-control.is-invalid,
 .was-validated .form-control:invalid {
     border-color: #dc3545;
-    padding-right: calc(1.5em + .75rem);
+    padding-left: calc(1.5em + .75rem);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
     background-repeat: no-repeat;
-    background-position: center right calc(.375em + .1875rem);
+    background-position: center left calc(.375em + .1875rem);
     background-size: calc(.75em + .375rem) calc(.75em + .375rem)
 }
 

@@ -1,22 +1,38 @@
 @extends('dashboard.masters.layout')
 @section('content')
-<form class="settings" action="{{ route("dashboard.categories.store") }}" method="POST" enctype="multipart/form-data">
-    <div class="form-row">
-        <div class="col-sm-4">
-            <div class="form-group has-top-label">
-                <label>نام</label>
-                <input name="name" class="form-control" placeholder="نام">
+<div class="tasks m-0">
+    <div class="container">
+        <div class="titr">
+            <button type="button" class="btn round" data-toggle="modal" data-target="#new-project">
+                <i class="feather-plus"></i>
+            </button>
+            <form dir="rtl" class="search">
+                <input value="{{ request('s') }}" name="s" type="search" class="form-control" placeholder="فیلتر" />
+                <button type="button" class="btn prepend">
+                    <i class="feather-filter"></i>
+                </button>
+            </form>
+        </div>
+        <div class="list">
+            <div class="row">
+                @foreach( $categories as $category)
+                <div class="col-6">
+                    <div class="item mb-3">
+                        <div class="content">
+                            <h5>{{ $category->name }}</h5>
+                            <a href="{{ route("dashboard.categories.destroy" , $category->id ) }}" class="remove">
+                                <i class="feather-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="form-group has-top-label">
-                <label>توضیحات</label>
-                <input name="description" class="form-control" placeholder="توضیحات">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="__galleries picture border rounded"></div>
+        <div align="center" class="mt-5">
+            {{ $categories->links("pagination::bootstrap-4") }}
         </div>
     </div>
-</form>
+</div>
+@include("dashboard.category.create")
 @endsection

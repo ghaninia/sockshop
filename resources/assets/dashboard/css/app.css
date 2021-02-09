@@ -6,6 +6,11 @@ body {
     font-family: iransans ;
 }
 
+.btn {
+    direction: rtl ;
+    text-align:  right ;
+}
+
 a {
     color: #212529;
     -moz-transition: all 0.3s;
@@ -107,9 +112,15 @@ p {
     border: none;
     font-size: 16px;
     font-weight: 500;
-    border-radius: 6px
+    border-radius: 6px ;
+    direction: rtl ;
+    text-align: right ;
 }
-
+button.btn.round i {
+    font-size: 20px;
+    line-height: 30px;
+    /* font-weight: bold; */
+}
 .form-control:focus {
     background: #f5f5f5;
     color: #bdbac2;
@@ -2422,3 +2433,36 @@ a.dropdown-item {
     }
 }
 
+.spinner-border-sm{
+    position: relative;
+    top: -5px;
+}
+
+.tasks .item .remove {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background: #eee;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    padding: 0;
+    transition: all .3s ease ;
+}
+.tasks .item .remove i{
+    color : rgba(0,0,0,.5) ;
+    position: relative;
+    top : -1px ;
+    left : 1px ;
+}
+.tasks .item .remove:hover {
+    background-color: crimson ;
+    cursor: pointer;
+}
+.tasks .item .remove:hover i{
+    color : #fff ;
+}

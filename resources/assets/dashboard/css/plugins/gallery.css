@@ -1,10 +1,10 @@
 
 .__galleries {
-    /* background: #fbfbfb; */
     position: relative;
-    border: 1px #c8c8d6 solid;
     overflow: hidden;
     min-height: 125px;
+    background: #f5f5f5;
+    border : 0 transparent
 }
 
 .__galleries .hidden {
@@ -22,8 +22,8 @@
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    oveflow: hidden;
-    font-size: 10px;
+    overflow: hidden;
+    font-size: 16px;
     transition: all .3s ease;
     z-index: 1
 }
@@ -78,7 +78,7 @@
     height: 150px;
     margin: 2%;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 5px;
     position: relative;
     z-index: 0 ;
     background-size: cover;
@@ -154,4 +154,14 @@
     bottom: 10px;
     left: 10px;
     visibility: visible;
+}
+
+.__galleries ul.import li span:nth-of-type(1){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80%;
+    text-align: right;
+    direction: rtl;
+    font-size: 12px;
 }
