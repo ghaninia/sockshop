@@ -1,4 +1,5 @@
 <?php
+namespace App\Repositories ;
 
 use App\Models\Admin;
 use App\Repositories\Repository;

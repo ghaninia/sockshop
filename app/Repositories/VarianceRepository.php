@@ -1,4 +1,5 @@
 <?php
+namespace App\Repositories ;
 
 use App\Models\Variance;
 use App\Repositories\Repository;

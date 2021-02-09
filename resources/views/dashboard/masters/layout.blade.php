@@ -21,7 +21,11 @@
     <div class="nav-side">
         @include("dashboard.masters.side")
         <div class="main">
-            @yield("content")
+            <div class="container">
+                <div class="hero">
+                    @yield("content")
+                </div>
+            </div>
         </div>
     </div>
     <script src="{{ mix("assets/dashboard/js/app.js") }}"></script>
