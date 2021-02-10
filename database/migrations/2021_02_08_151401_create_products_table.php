@@ -13,8 +13,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string("title");
             $table->string("slug")->unique() ;
-            $table->string("summary")->nullable();
-            $table->string("description")->nullable();
+            $table->text("summary")->nullable();
+            $table->text("description")->nullable();
             $table->text("keywords")->nullable();
             $table->timestamps();
         });

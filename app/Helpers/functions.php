@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Option;
 
@@ -26,11 +27,24 @@ function slug($name)
 {
     $lettersNumbersSpacesHyphens = '/[^\-\s\pN\pL]+/u';
     $spacesDuplicateHypens = '/[\-\s]+/';
-    $slug = preg_replace($lettersNumbersSpacesHyphens, null , $name );
+    $slug = preg_replace($lettersNumbersSpacesHyphens, null, $name);
     $slug = preg_replace($spacesDuplicateHypens, '-', $slug);
     $slug = trim($slug, '+');
-    if($slug[strlen($slug)-1] == "-"){
-        $slug = substr($slug , 0 , strlen($slug)-1) ;
+    if ($slug[strlen($slug) - 1] == "-") {
+        $slug = substr($slug, 0, strlen($slug) - 1);
     }
-    return $slug ;
+    return $slug;
+}
+
+
+function picture($object, $notPreview = false,  $usage = "picture", $size = 'thumbnail')
+{
+    $picture = File::show($object, $usage, $size)->first();
+    return !!$picture ? $picture : ($notPreview ? null : asset(config("site.preview")));
+}
+
+function gallery($type, $size = "thumbnail", $usage = "gallery")
+{
+    $pictures = File::show($type, $usage, $size);
+    return $pictures;
 }

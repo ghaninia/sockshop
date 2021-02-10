@@ -28,6 +28,15 @@ class Order extends Model
         "post_trackinged_at"
     ] ;
 
+    const STATUS_SUCCEED = "STATUS_SUCCEED" ;
+    const STATUS_FAILED = "STATUS_FAILED" ;
+    const STATUS_INIT = "STATUS_INIT" ;
+
+    const STATUES = [
+        SELF::STATUS_SUCCEED ,
+        SELF::STATUS_FAILED ,
+        SELF::STATUS_INIT ,
+    ] ;
 
     public function address()
     {

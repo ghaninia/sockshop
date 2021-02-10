@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Helpers\Attachments\Attachment;
 use App\Helpers\Attachments\PublicDiskAttachment;
 use App\Helpers\Traits\Response;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStore;
-use App\Models\Category;
+use App\Http\Requests\ProductUpdate;
 use App\Models\File;
+use App\Models\Order;
 use App\Models\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
@@ -24,9 +24,22 @@ class ProductController extends Controller
         $this->categories = $categories;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        
+        $this->seo([
+            "title" => "لیست محصولات"
+        ]);
+        $s = $request->input("s");
+        $products = Product::when($s, function ($query) use ($s) {
+            return $query->where("title", "like", "%{$s}%");
+        })
+            ->withCount([
+                "orders" => function ($query) {
+                    return $query->where("status", Order::STATUS_SUCCEED);
+                },
+            ])
+            ->paginate(12);
+        return view("dashboard.product.index", compact("products"));
     }
 
     public function create()
@@ -50,7 +63,7 @@ class ProductController extends Controller
             "description" => $request->input("description"),
         ]);
 
-        $product->categories()->sync($request->input("categories"));
+        $product->categories()->sync($request->input("categories", []));
         $product->variances()->createMany($request->input("variances"));
 
         if ($request->has("picture"))
@@ -67,23 +80,81 @@ class ProductController extends Controller
         return $this->success("محصول با موفقیت ثبت گردیده است.");
     }
 
-    public function show(Product $product)
-    {
-        //
-    }
-
     public function edit(Product $product)
     {
-        //
+        $this->seo([
+            "title" => [
+                "ویرایش محصول",
+                $product->title
+            ]
+        ]);
+        $variances =
+            $product->variances()->select([
+                "id",
+                "title",
+                "tooltip",
+                "price"
+            ])->get();
+        $categories = $this->categories->all();
+        $productCategories = $product->categories->pluck("id")->toArray();
+        $keywords = implode(",", $product->keywords);
+        return view("dashboard.product.edit", compact("product", "variances", "categories", "keywords", "productCategories"));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(ProductUpdate $request, Product $product, PublicDiskAttachment $attachment)
     {
-        //
+
+        $product->update([
+            "keywords" => $request->input("keywords", []),
+            "title" => $request->input("title"),
+            "slug" => slug($request->input("title")),
+            "summary" => $request->input("summary"),
+            "description" => $request->input("description"),
+        ]);
+        $product->categories()->sync($request->input("categories", []));
+
+        $galleries = $request->file("galleries");
+        //delete different
+        if ($request->has("previous_galleries")) {
+            $galleriesOldest = json_decode(json_encode(gallery($product)));
+            $previosGalleries = $request->input("previous_galleries");
+            $diff = array_diff($galleriesOldest, $previosGalleries);
+            if (count($diff))
+                foreach ($diff as $item) {
+                    $product->files()->where("files.url", "like", "%" . basename($item))->delete();
+                }
+        }
+
+        $complationGalleries = [];
+        if (is_array($galleries)) {
+            for ($i = 0; $i < count($galleries); $i++) {
+                $complationGalleries[] = $attachment->upload("galleries.$i", "gallery");
+            }
+            $complationGalleries =  collect($complationGalleries)->collapse();
+            if (count($complationGalleries))
+                $product->files()->createMany($complationGalleries);
+        }
+
+        $variances = $request->input("variances") ?? [];
+        $oldestVariances = $product->variances()->pluck("id")->toArray();
+        $diff = array_diff($oldestVariances, array_keys($variances));
+        $product->variances()->whereIn("id", $diff)->delete();
+        foreach ($variances as $key => $variance) {
+            if (!in_array($key, $oldestVariances)) {
+                $product->variances()->create($variance);
+            }
+            $product->variances()->where("id", $key)->update($variance);
+        }
+
+        return $this->success("محصول شما با موفقیت ویرایش گردید.");
     }
 
     public function destroy(Product $product)
     {
-        //
+        $product->files()->delete();
+        $product->orders()->delete();
+        $product->categories()->detach();
+        $product->delete();
+        return $this->success("محصول با موفقیت حذف گردیده است.");
     }
 }

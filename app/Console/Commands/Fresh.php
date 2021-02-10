@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Helpers\Attachments\PublicDiskAttachment;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
@@ -17,10 +18,10 @@ class Fresh extends Command
         parent::__construct();
     }
 
-    public function handle()
+    public function handle(PublicDiskAttachment $storage)
     {
         Artisan::call("migrate:refresh") ;
         Artisan::call("clear-compiled") ;
-        Storage::deleteDirectory("uploads") ;
+        $storage->cleanRootFolder() ;
     }
 }

@@ -149,7 +149,7 @@
 }
 
 .__galleries ul.import li:hover .delete {
-    background: var(--default-color);
+    background: crimson;
     color: #fff;
     bottom: 10px;
     left: 10px;

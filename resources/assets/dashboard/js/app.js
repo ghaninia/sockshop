@@ -32,6 +32,12 @@ toastr.options = {
     onHidden: null
 };
 
+function jsonFormat(text) {
+    return /^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').
+        replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+        replace(/(?:^|:|,)(?:\s*\[)+/g, ''));
+}
+
 function stepMessage(errors, length, step = 0, callback = null) {
     // if( step == length ){
     // callback(errors) ;
@@ -248,8 +254,10 @@ $(function () {
             inputPlaceHolder: "کلمات کلیدی"
         });
     });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 })
-
 
 $(function () {
     $(".tasks .list .item").each(function () {
@@ -276,6 +284,7 @@ $(function () {
     $(".prices").each(function () {
         var wrapper = $(this),
             name = "variances",
+            oldestItems = wrapper.data("oldest") ,
             templates = {
                 li: `
                     <li>
@@ -302,29 +311,35 @@ $(function () {
                 }
                 return result;
             },
-            liGenerate = (item = {} ) => {
+            liGenerate = (item = {}) => {
                 var v_id = item.id || makeID(),
-                    v_title = item.title || "" ,
+                    v_title = item.title || "",
                     v_tooltip = item.tooltip || "",
                     v_price = item.price || "",
                     temp = templates.li;
 
-                temp = temp.replaceAll(":name" , name ) ;
+                temp = temp.replaceAll(":name", name);
                 temp = temp.replaceAll(":id", v_id);
                 temp = temp.replaceAll(":title", v_title);
                 temp = temp.replaceAll(":tooltip", v_tooltip);
                 temp = temp.replaceAll(":price", v_price);
                 wrapper.append(temp);
             };
+
         wrapper.html(templates.appendBtn);
+        if( oldestItems && oldestItems.length ){
+            oldestItems.map(function(item){
+                liGenerate(item) ;
+            });
+        }
 
         wrapper.on("click", ".append", function () {
             liGenerate();
         });
 
         wrapper.on("click", "li .remove", function () {
-            var li = $(this).closest("li") ;
-            li.remove() ;
+            var li = $(this).closest("li");
+            li.remove();
         });
 
     });

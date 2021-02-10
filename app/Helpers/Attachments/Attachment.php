@@ -126,13 +126,18 @@ abstract class Attachment
         return $this->disk->delete($url);
     }
 
-    public static function show(Collection $items): array
+    public static function show(Collection $items): Collection
     {
         $links = [];
         foreach ($items as $item) {
             $link = Storage::disk($item->disk)->url($item->url);
             $links[] = str_replace(DIRECTORY_SEPARATOR, "/", $link);
         }
-        return $links;
+        return collect($links);
+    }
+
+    public function cleanRootFolder(){
+        foreach(array_keys($this->formats) as $folder)
+            $this->disk->deleteDirectory( $folder ) ;
     }
 }

@@ -5,6 +5,7 @@ namespace App\Helpers\Attachments\Traits;
 use App\Helpers\Attachments\Attachment;
 use App\Helpers\Attachments\PublicDiskAttachment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 trait HasAttachment
 {
@@ -27,7 +28,7 @@ trait HasAttachment
         return false;
     }
 
-    public static function show(Model $model, string $usage = null, string $size = "full"): array
+    public static function show(Model $model, string $usage = null, string $size = "full"): Collection
     {
         $lists = $model->files()->where([
             'usage'  => $usage,
