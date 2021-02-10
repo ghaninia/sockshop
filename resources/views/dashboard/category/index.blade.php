@@ -3,7 +3,7 @@
 <div class="tasks m-0">
     <div class="container">
         <div class="titr">
-            <button data-toggle="tooltip" data-placement="top" title="جدید"  type="button" class="btn round" data-toggle="modal" data-target="#new-project">
+            <button class="btn round" data-toggle="modal" data-target="#new-project">
                 <i class="feather-plus"></i>
             </button>
             <form dir="rtl" class="search">

@@ -10,6 +10,10 @@ class OptionController extends Controller
 {
     public function index()
     {
+        $this->seo([
+            "title" => "تنظیمات" ,
+        ]) ;
+        return view("dashboard.option.index") ;
     }
 
     public function store(Request $request)
