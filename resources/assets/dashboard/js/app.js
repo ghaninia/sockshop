@@ -161,8 +161,8 @@ $(document).on("submit", "form", function (e) {
 $(function () {
     var elements = [
         "#form",
+        ".form"
     ];
-
     $(document).on("submit", elements.join(","), function (e) {
         e.preventDefault();
         var form = $(this);

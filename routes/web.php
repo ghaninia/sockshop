@@ -5,9 +5,9 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\OptionController;
 use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\ProductController;
+use App\Http\Controllers\Dashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\MainController;
-use Illuminate\Support\Facades\Auth;
 
 //middleware("auth")->
 Route::prefix("dashboard")->name("dashboard.")->group(function () {
@@ -20,6 +20,11 @@ Route::prefix("dashboard")->name("dashboard.")->group(function () {
     Route::prefix("option")->name("option.")->group(function () {
         Route::get("/", [OptionController::class, "index"])->name("index");
         Route::post("/", [OptionController::class, "store"])->name("store");
+    });
+    Route::prefix("profile")->name("profile.")->group(function () {
+        Route::get("/", [ProfileController::class, "index"])->name("index");
+        Route::post("/", [ProfileController::class, "store"])->name("store");
+        Route::post("password", [ProfileController::class, "password"])->name("password");
     });
 });
 

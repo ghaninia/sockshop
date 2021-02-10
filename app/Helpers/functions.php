@@ -11,12 +11,9 @@ function avatar()
     return  asset($avatar);
 }
 
-function me($guard = "admin")
+function me()
 {
-    $guards = config("auth.guards");
-    $guards = array_keys($guards);
-    if (!in_array($guard,  $guards)) return NULL;
-    return Auth::guard($guard)->user();
+    return Auth::user();
 }
 
 function options($key, $default = null, $defaultValue = true)
