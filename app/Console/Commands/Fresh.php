@@ -21,6 +21,7 @@ class Fresh extends Command
     public function handle(PublicDiskAttachment $storage)
     {
         Artisan::call("migrate:refresh") ;
+        Artisan::call("db:seed") ;
         Artisan::call("clear-compiled") ;
         $storage->cleanRootFolder() ;
     }

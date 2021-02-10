@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Cache;
 class Option extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        "key",
+        "value",
+        "default"
+    ];
     public $timestamps = false;
 
     private const CACHE_KEY = "options_cache";

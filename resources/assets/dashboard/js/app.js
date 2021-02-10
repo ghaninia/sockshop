@@ -248,6 +248,16 @@ $(function () {
         el: "galleries",
         label: "گالری محصول"
     });
+    $(".logo").gallery({
+        el: "logo",
+        unit: 1,
+        label: "لوگو وبسایت"
+    }) ;
+    $(".favicon").gallery({
+        el: "favicon",
+        unit: 1,
+        label: "فاوآیکون وبسایت"
+    }) ;
     $(".keywords").each(function () {
         $(this).additive({
             element: "keywords",
@@ -342,7 +352,5 @@ $(function () {
             var li = $(this).closest("li");
             li.remove();
         });
-
-        
     });
 });
