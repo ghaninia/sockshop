@@ -151,7 +151,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $product->files()->delete();
+        $product->files->each->delete();
         $product->orders()->delete();
         $product->categories()->detach();
         $product->delete();

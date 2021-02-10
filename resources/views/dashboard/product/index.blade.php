@@ -18,11 +18,11 @@
         <div class="list">
             <div class="row">
                 @foreach( $products as $product)
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="item mb-3">
                         <div class="content">
                             <a href="{{ route("dashboard.products.edit" , $product->id ) }}">
-                                <h5>{{ $product->title }}</h5>
+                                <small>{{ $product->title }}</small>
                             </a>
                             <a href="{{ route("dashboard.products.destroy" , $product->id ) }}" class="remove">
                                 <i class="feather-trash"></i>

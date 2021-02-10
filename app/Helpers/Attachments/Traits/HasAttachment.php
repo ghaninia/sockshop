@@ -9,12 +9,13 @@ use Illuminate\Support\Collection;
 
 trait HasAttachment
 {
-    public static function boot()
+
+    protected static function boot()
     {
-        parent::boot();
-        static::deleting(function ($file) {
-            $storage = new PublicDiskAttachment();
-            $storage->remove($file);
+        parent::boot() ;
+        static::deleting(function($item) {
+            $storage = new  PublicDiskAttachment ;
+            $storage->remove( $item ) ;
         });
     }
 
@@ -33,7 +34,7 @@ trait HasAttachment
         $lists = $model->files()->where([
             'usage'  => $usage,
             'size'   => $size
-        ])->get() ;
+        ])->get();
         return Attachment::show($lists);
     }
 }

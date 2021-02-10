@@ -333,6 +333,7 @@ $(function () {
             });
         }
 
+
         wrapper.on("click", ".append", function () {
             liGenerate();
         });
@@ -342,5 +343,6 @@ $(function () {
             li.remove();
         });
 
+        
     });
 });

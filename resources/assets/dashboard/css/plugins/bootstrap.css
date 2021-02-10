@@ -613,7 +613,7 @@ pre code {
 .row {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -15px;
@@ -2099,7 +2099,7 @@ textarea.form-control {
 .form-row {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -5px;
@@ -4219,7 +4219,7 @@ input[type=submit].btn-block {
 .nav {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding-left: 0;
@@ -5457,7 +5457,7 @@ a.badge-dark:focus {
 .progress {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     height: 1rem;
     overflow: hidden;
     font-size: .75rem;
@@ -6056,7 +6056,7 @@ a.close.disabled {
 .modal-header {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: start;
     align-items: flex-start;
     -ms-flex-pack: justify;

@@ -3,7 +3,7 @@
 <div class="tasks m-0">
     <div class="container">
         <div class="titr">
-            <button type="button" class="btn round" data-toggle="modal" data-target="#new-project">
+            <button data-toggle="tooltip" data-placement="top" title="جدید"  type="button" class="btn round" data-toggle="modal" data-target="#new-project">
                 <i class="feather-plus"></i>
             </button>
             <form dir="rtl" class="search">
@@ -16,10 +16,10 @@
         <div class="list">
             <div class="row">
                 @foreach( $categories as $category)
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="item mb-3">
                         <div class="content">
-                            <h5>{{ $category->name }}</h5>
+                            <small>{{ $category->name }}</small>
                             <a href="{{ route("dashboard.categories.destroy" , $category->id ) }}" class="remove">
                                 <i class="feather-trash"></i>
                             </a>

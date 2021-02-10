@@ -1,4 +1,14 @@
 
+body {
+    background: #fbfbfb;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.7 ;
+    font-family: iransans ;
+    text-align: right ;
+    direction: rtl;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -25,19 +35,6 @@ input:-webkit-autofill:active {
 ::selection {
     background: rgba(255,193,7, .5 ) ;
     color :#332702 ;
-}
-
-body {
-    background: #fbfbfb;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.7 ;
-    font-family: iransans ;
-}
-
-.btn {
-    direction: rtl ;
-    text-align:  right ;
 }
 
 a {
@@ -507,7 +504,7 @@ a.dropdown-item {
 .navigation .container {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 30px 15px;
@@ -601,7 +598,7 @@ a.dropdown-item {
     position: relative;
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: justify;
@@ -731,7 +728,7 @@ a.dropdown-item {
 .hero .meta {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: justify;
@@ -741,7 +738,7 @@ a.dropdown-item {
 .hero .meta span {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     font-weight: 500;
@@ -948,7 +945,7 @@ a.dropdown-item {
 .tasks .item .meta {
     display: -ms-flexbox;
     display: flex;
-	flex-direction: row-reverse;
+	flex-direction: row;
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: justify;
@@ -958,7 +955,7 @@ a.dropdown-item {
 .tasks .item .meta span {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     font-weight: 500;
@@ -1014,7 +1011,7 @@ a.dropdown-item {
 .task .checklist .item {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     padding: 30px;
@@ -1115,7 +1112,7 @@ a.dropdown-item {
 .task .notes .item .top {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     align-items: baseline;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -1259,7 +1256,7 @@ a.dropdown-item {
 .chat .sidebar .members-list .item {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     padding: 25px 0;
@@ -1345,7 +1342,7 @@ a.dropdown-item {
 .chat .discussion .top .container {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center
 }
@@ -1353,7 +1350,7 @@ a.dropdown-item {
 .chat .discussion .top .team {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     margin-left: auto
@@ -1607,7 +1604,7 @@ a.dropdown-item {
 .settings .sub {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: baseline;
     align-items: baseline;
     -ms-flex-pack: justify;
@@ -1765,7 +1762,7 @@ a.dropdown-item {
 .rectangles .item .top {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     align-items: baseline;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -1803,7 +1800,7 @@ a.dropdown-item {
 .rectangles .item .meta {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: justify;
@@ -1813,7 +1810,7 @@ a.dropdown-item {
 .rectangles .item .meta span {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     font-weight: 500;
@@ -1838,7 +1835,7 @@ a.dropdown-item {
 .snippets .item {
     display: -ms-flexbox;
     display: flex;
-	flex-direction:row-reverse;
+	flex-direction:row;
     -ms-flex-align: center;
     align-items: center;
     padding: 25px;
@@ -2249,7 +2246,7 @@ a.dropdown-item {
     .nav-side {
         display: -ms-flexbox;
         display: flex;
-		flex-direction: row-reverse;
+		flex-direction: row;
     }
     .navigation .container {
         -ms-flex-direction: column;
@@ -2290,7 +2287,7 @@ a.dropdown-item {
     .chat {
         display: -ms-flexbox;
         display: flex;
-		flex-direction:row-reverse;
+		flex-direction:row;
         height: 100vh
     }
     .modal-lg {
@@ -2342,7 +2339,7 @@ a.dropdown-item {
     .tasks .item {
         display: -ms-flexbox;
         display: flex;
-		flex-direction:row-reverse;
+		flex-direction:row;
         -ms-flex-align: center;
         align-items: center
     }
@@ -2399,7 +2396,7 @@ a.dropdown-item {
 .titr{
 	display: -ms-flexbox;
 	display:flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 	position:inline-block;
@@ -2498,6 +2495,7 @@ a.dropdown-item {
 
 .prices button.append {
     position: absolute;
+    left: 20px;
     bottom: -40px;
     background: #eee;
     border-radius: 50%;
@@ -2547,7 +2545,7 @@ ul.variances li .remove {
     align-items: center;
     justify-content: center;
     top: calc(50% - 15px);
-    right : -5px ;
+    left : -5px ;
     border : 5px #fff solid ;
     cursor: pointer;
 }

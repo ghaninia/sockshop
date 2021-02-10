@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 
 trait Computing
 {
+
     private function generateName($file)
     {
         $extension =  $file->getClientOriginalExtension();
