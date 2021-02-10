@@ -4,10 +4,12 @@ require("lodash");
 require("bootstrap");
 window.$ = window.jQuery = require('jquery');
 require("./plugins/gallery");
+require("./plugins/additive");
+
 window.axios = require('axios');
 const Nprogress = require("nprogress");
 const toastr = require("toastr");
-
+const selectric = require("selectric");
 if (config.token) {
     window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = config.token;
@@ -236,23 +238,94 @@ $(function () {
         unit: 1,
         label: "تصویر شاخص"
     });
+    $(".gallery").gallery({
+        el: "galleries",
+        label: "گالری محصول"
+    });
+    $(".keywords").each(function () {
+        $(this).additive({
+            element: "keywords",
+            inputPlaceHolder: "کلمات کلیدی"
+        });
+    });
 })
+
 
 $(function () {
     $(".tasks .list .item").each(function () {
-        $(".remove" , this ).click(function (e) {
-            e.preventDefault() ;
+        $(".remove", this).click(function (e) {
+            e.preventDefault();
             var action = $(this).attr("href"),
-                wrapper = $(this).closest(".item") ,
+                wrapper = $(this).closest(".item"),
                 conf = confirm("آیا از حذف این آیتم مطمئن هستید ؟");
             if (conf) {
                 DeleteFromResponse(action, function (response) {
-                    __sucessMessage(response , function(){
-                        wrapper.remove() ;
-                        window.location.reload() ;
+                    __sucessMessage(response, function () {
+                        wrapper.remove();
+                        window.location.reload();
                     });
                 })
             }
         });
-    })
+    });
+
+    $("select").each(function () {
+        $(this).selectric();
+    });
+
+    $(".prices").each(function () {
+        var wrapper = $(this),
+            name = "variances",
+            templates = {
+                li: `
+                    <li>
+                        <div class="remove">
+                            <i class="feather-x"></i>
+                        </div>
+                        <input required name=":name[:id][title]" value=":title" placeholder="تیتر" />
+                        <input name=":name[:id][tooltip]" value=":tooltip" placeholder="توضیحات" />
+                        <input required type="number" name=":name[:id][price]" value=":price" placeholder="قیمت (ریال)" />
+                    </li>
+                ` ,
+                appendBtn: `
+                    <button type="button" class="append border">
+                        <i class="feather-plus"></i>
+                    </button>
+                `
+            },
+            makeID = (length = 10) => {
+                var result = '';
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                var charactersLength = characters.length;
+                for (var i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
+            },
+            liGenerate = (item = {} ) => {
+                var v_id = item.id || makeID(),
+                    v_title = item.title || "" ,
+                    v_tooltip = item.tooltip || "",
+                    v_price = item.price || "",
+                    temp = templates.li;
+
+                temp = temp.replaceAll(":name" , name ) ;
+                temp = temp.replaceAll(":id", v_id);
+                temp = temp.replaceAll(":title", v_title);
+                temp = temp.replaceAll(":tooltip", v_tooltip);
+                temp = temp.replaceAll(":price", v_price);
+                wrapper.append(temp);
+            };
+        wrapper.html(templates.appendBtn);
+
+        wrapper.on("click", ".append", function () {
+            liGenerate();
+        });
+
+        wrapper.on("click", "li .remove", function () {
+            var li = $(this).closest("li") ;
+            li.remove() ;
+        });
+
+    });
 });

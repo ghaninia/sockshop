@@ -12,7 +12,13 @@ class Product extends Model
     protected $fillable = [
         "title",
         "summary",
-        "description"
+        "description",
+        "keywords" ,
+        "slug"
+    ];
+
+    protected $casts = [
+        "keywords" => "array"
     ];
 
     public function files()

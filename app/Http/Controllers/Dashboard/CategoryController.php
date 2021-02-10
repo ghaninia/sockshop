@@ -46,6 +46,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->products()->detach();
+        $category->files()->delete();
         $category->delete();
         return $this->success("دسته بندی با موفقیت حذف گردید.");
     }

@@ -161,7 +161,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 80%;
-    text-align: right;
+    text-align: center;
     direction: rtl;
     font-size: 12px;
 }
