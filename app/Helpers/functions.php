@@ -50,26 +50,11 @@ function gallery($type, $size = "thumbnail", $usage = "gallery")
     return $pictures;
 }
 
-function logo($type = "logo", $size = "thumbnail")
+function logo($type = "logo" , $notPreview = false ,  $size = "thumbnail")
 {
-    try {
-        $getLogo = options($type);
-        $getLogo = json_decode($getLogo, true);
-        if (!!$getLogo && is_array($getLogo) && count($getLogo)) {
-            /* logo از فرمت svg و ico ساپورت میشود */
-            $hasFile = collect($getLogo)->where("format", "file")->count();
-            if ($hasFile) {
-                $getLogo = collect($getLogo)->pluck("url");
-                $getLogo = Attachment::show($getLogo)->first();
-            } else {
-                $getLogo = collect($getLogo)->where("size", $size)->pluck("url");
-                $getLogo = Attachment::show($getLogo)->first();
-            }
-            return $getLogo;
-        } else {
-            throw new Exception("فایل یافت نشده است !");
-        }
-    } catch (Exception $e) {
-        return asset(config("site.preview"));
-    }
+    $logo = options($type) ;
+    $logo = json_decode( $logo , true ) ;
+    $logo = collect($logo)->where("size" , $size)->values() ;
+    $logo =  Attachment::show($logo)->first() ;
+    return !!$logo ? $logo : ($notPreview ? null : asset(config("site.preview")));
 }

@@ -515,8 +515,10 @@ a.dropdown-item {
 .navigation .container::-webkit-scrollbar {
     display: none
 }
-
-.navigation .logo img {
+.navigation .logos{
+    margin: 0 auto;
+}
+.navigation .logos img {
     width: 36px;
     height: 36px
 }

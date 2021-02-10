@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             <label for="description">کلمات کلیدی سایت</label>
-            <div class="keywords __additive" data-old="{!! options(" keywords") !!}"></div>
+            <div class="keywords __additive" data-old="{!! options("keywords") !!}"></div>
         </div>
         <div class="form-group">
             <label for="copyright">کپی رایت سایت</label>
@@ -46,10 +46,10 @@
         </div>
         <div class="form-row">
             <div class="col-sm-6">
-                <div data-oldest="{{ options("logo") }}" class="logo __galleries mb-4"></div>
+                <div data-oldest="{{ logo("logo" , true ) }}" class="logo __galleries mb-4"></div>
             </div>
             <div class="col-sm-6">
-                <div data-oldest="{{ options("favicon") }}" class="favicon __galleries mb-4"></div>
+                <div data-oldest="{{ logo("favicon" , true ) }}" class="favicon __galleries mb-4"></div>
             </div>
         </div>
         <button class="btn primary">ذخیره تغییرات</button>

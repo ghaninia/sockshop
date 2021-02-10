@@ -130,14 +130,15 @@ abstract class Attachment
     {
         $links = [];
         foreach ($items as $item) {
-            $link = Storage::disk($item->disk)->url($item->url);
+            $link = Storage::disk($item->disk ?? $item["disk"])->url($item->url ?? $item["url"]);
             $links[] = str_replace(DIRECTORY_SEPARATOR, "/", $link);
         }
         return collect($links);
     }
 
-    public function cleanRootFolder(){
-        foreach(array_keys($this->formats) as $folder)
-            $this->disk->deleteDirectory( $folder ) ;
+    public function cleanRootFolder()
+    {
+        foreach (array_keys($this->formats) as $folder)
+            $this->disk->deleteDirectory($folder);
     }
 }

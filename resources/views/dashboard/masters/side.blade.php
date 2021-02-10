@@ -1,5 +1,8 @@
 <nav class="navigation">
     <div class="container">
+        <a href="{{ route('dashboard.main') }}" class="logos" rel="home">
+            <img src="{{ logo() }}" alt="{{ options('title') }}" />
+        </a>
         <button type="button" class="btn toggler collapsed" data-toggle="collapse" data-target="#content" aria-controls="content">
             <span class="icon"></span>
         </button>
