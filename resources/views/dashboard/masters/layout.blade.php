@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,16 +19,20 @@
 </head>
 
 <body>
-    <div class="nav-side">
-        @include("dashboard.masters.side")
-        <div class="main">
-            <div class="container">
-                <div class="hero">
-                    @yield("content")
+        @if(request()->is("auth/*"))
+            @yield("content")
+        @else
+            <div class="nav-side">
+                @include("dashboard.masters.side")
+                <div class="main">
+                    <div class="container">
+                        <div class="hero">
+                            @yield("content")
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        @endif
     <script src="{{ mix("assets/dashboard/js/app.js") }}"></script>
 </body>
 

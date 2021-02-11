@@ -10,6 +10,9 @@ class MainController extends Controller
 
     public function index()
     {
+        $this->seo([
+
+        ]) ;
         return view('guest.main');
     }
 

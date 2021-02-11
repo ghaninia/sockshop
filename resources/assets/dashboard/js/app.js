@@ -224,7 +224,7 @@ $(function () {
     $(".__logout").click(function (e) {
         e.preventDefault();
         var action = $(this).attr("href");
-        var conf = confirm(_("auth.logout.request"));
+        var conf = confirm("آیا میخواهید از پلن کاربری خارج شوید ؟");
         if (conf) {
             PostFormResponse(action, null, function (items) {
                 __sucessMessage(items, function (response) {

@@ -3,19 +3,28 @@
 <div class="sign">
     <div class="container">
         <div class="item">
-            <h2>ورود</h2>
-            <form dir="rtl">
+            <img src="{{ logo() }}" alt="{{ options("title") }}">
+            <form class="needs-validation" novalidate="" id="form" action="{{ route("auth.login.store") }}" method="post">
+                @csrf
                 <div class="form-group">
-                    <label>نام کاربری</label>
-                    <input type="text" class="form-control" placeholder="نام کاربری خود را وارد نمایید">
-                    <button class="btn prepend">
+                    <label>پست الکترونیکی</label>
+                    <input required type="email" name="email" class="form-control" placeholder="پست الکترونیکی را وارد کنید">
+                    <button type="button" class="btn prepend">
+                        <i class="feather-mail"></i>
                     </button>
                 </div>
                 <div class="form-group">
                     <label>کلمه ی عبور</label>
-                    <a href="forgot-password.html">کلمه عبور را فراموش کرده اید؟</a>
-                    <input type="password" class="form-control" placeholder="کلمه عبور را وارد کنید">
-                    <button class="btn prepend">
+                    <input required type="password" name="password" class="form-control" placeholder="کلمه عبور را وارد کنید">
+                    <button type="button" class="btn prepend">
+                        <i class="feather-lock"></i>
+                    </button>
+                </div>
+                <div class="form-group captcha">
+                    <label>کد کپچا</label>
+                    <input required name="captcha" class="form-control">
+                    <button type="button" class="btn prepend ">
+                        <img src="{{ route("captcha") }}" alt="">
                     </button>
                 </div>
                 <button class="btn primary">ورود</button>

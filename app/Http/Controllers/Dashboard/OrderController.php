@@ -9,7 +9,11 @@ class OrderController extends Controller
 {
     public function index()
     {
+        $this->seo([
+            "title" => "لیست سفارشات"
+        ]) ;
 
+        return view("dashboard.order.index") ;
     }
 
     public function create()

@@ -4,6 +4,7 @@ use App\Helpers\Attachments\Attachment;
 use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Option;
+use Illuminate\Support\Arr;
 
 function avatar()
 {
@@ -54,4 +55,10 @@ function logo($type = "logo" , $notPreview = false ,  $size = "thumbnail")
     $logo = collect($logo)->where("size" , $size)->values() ;
     $logo =  Attachment::show($logo)->first() ;
     return !!$logo ? $logo : ($notPreview ? null : asset(config("site.preview")));
+}
+
+
+function array_random($array)
+{
+    return Arr::random( $array ) ;
 }

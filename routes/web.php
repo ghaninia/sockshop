@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\OptionController;
@@ -9,8 +10,15 @@ use App\Http\Controllers\Dashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\MainController;
 
-//middleware("auth")->
-Route::prefix("dashboard")->name("dashboard.")->group(function () {
+Route::prefix("auth")->name("auth.")->group(function () {
+    Route::prefix("login")->name("login.")->group(function () {
+        Route::get("/", [LoginController::class, "showLoginForm"])->name("index");
+        Route::post("/", [LoginController::class, "login"])->name("store");
+    });
+    Route::middleware("auth")->post("logout", [LoginController::class, "logout"])->name("logout");
+});
+
+Route::prefix("dashboard")->middleware("auth")->name("dashboard.")->group(function () {
     Route::get("/", [DashboardController::class, "index"])->name("main");
     Route::resources([
         "orders" => OrderController::class,

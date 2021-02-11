@@ -41,7 +41,7 @@
                     <div class="dropdown-menu">
                         <a target="__blank" href="{{ route("guest.main") }}" class="dropdown-item">مشاهده سایت</a>
                         <a href="{{ route("dashboard.profile.index") }}" class="dropdown-item">ویرایش پروفایل</a>
-                        <a href="" class="dropdown-item">خروج</a>
+                        <a href="{{ route("auth.logout") }}" class="dropdown-item __logout">خروج</a>
                     </div>
                 </div>
             </div>

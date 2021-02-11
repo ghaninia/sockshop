@@ -2566,3 +2566,17 @@ ul.variances li .remove {
         padding : 10px ;
     }
 }
+
+
+.captcha .form-control {
+    padding: 0 110px 0 20px;
+}
+.captcha .prepend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.captcha .prepend img {
+    width: 80px;
+    margin-bottom: 5px;
+}
