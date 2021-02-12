@@ -3,6 +3,15 @@ body {
     position: relative;
     font-family: sahel ;
 }
+.features .feature h1,
+.features .feature h2,
+.features .feature h3,
+.features .feature h4,
+.features .feature h5,
+.features .feature h6 {
+    font-size : 17px ;
+    font-family: sahel-black;
+}
 
 :root {
     --default : #e38cb7 ,
@@ -16,7 +25,7 @@ body {
 .bg-gradient ,
 .features .feature.active {
     background: #992111;  /* fallback for old browsers */
-    background: linear-gradient(to right, #fc5f5f, #ff0606);
+    background: linear-gradient(to right, #ff6363, #e00f0f);
 }
 
 
@@ -130,6 +139,7 @@ header .header-cover::after{
 }
 
 .features {
+    border-radius: 20px ;
     display: flex;
     box-shadow : 0 0 10px rgba(0,0,0,.1) ;
     margin : 0 ;
