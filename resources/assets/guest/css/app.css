@@ -1127,6 +1127,11 @@ header {
     margin-right: auto!important;
 }
 
+@media( max-width : 720px ){
+    .navbar-nav {
+        padding : 0
+    }
+}
 
 .nav {
     padding-right: 0;
