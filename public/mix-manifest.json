@@ -5,5 +5,7 @@
     "/assets/dashboard/css/app.css": "/assets/dashboard/css/app.css",
     "/assets/dashboard/images/preview.svg": "/assets/dashboard/images/preview.svg",
     "/assets/guest/css/bundle.css": "/assets/guest/css/bundle.css",
-    "/assets/guest/css/app.css": "/assets/guest/css/app.css"
+    "/assets/guest/css/app.css": "/assets/guest/css/app.css",
+    "/assets/guest/images/shape.png": "/assets/guest/images/shape.png",
+    "/assets/guest/images/wallpaper.png": "/assets/guest/images/wallpaper.png"
 }

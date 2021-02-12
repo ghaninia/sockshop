@@ -11,12 +11,12 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("province_id")->index() ;
-            $table->unsignedBigInteger("city_id")->index() ;
+            // $table->unsignedBigInteger("province_id")->index() ;
+            // $table->unsignedBigInteger("city_id")->index() ;
             $table->text("address")->nullable();
-            $table->text("postal_code")->nullable();
+            // $table->text("postal_code")->nullable();
             $table->string("phone")->nullable();
-            $table->string("national_code")->nullable();
+            // $table->string("national_code")->nullable();
             $table->timestamps();
         });
     }

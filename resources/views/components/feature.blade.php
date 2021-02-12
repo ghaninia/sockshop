@@ -1,33 +1,31 @@
-<div id="features" class="host-feature-area pt-100 pb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <div class="feature-item">
-                    <i class="feather-shopping-bag"></i>
-                    <h3>خرید سریع</h3>
-                    <p>بعد از انتخاب محصول سریع و آنی محصول را دریافت خواهید کرد</p>
-                </div>
+<div class="container">
+    <div class="section features" id="features" tabindex="-1">
+        <div class="feature active">
+            <i class="feather-truck"></i>
+            <div>
+                <h1>ارسال سریع و رایگان</h1>
+                <p>خریدهای به صورت رایگان و در سریع ترین زمان ارسال می شود.</p>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="feature-item">
-                    <i class="feather-truck"></i>
-                    <h3>ارسال سریع و رایگان</h3>
-                    <p>ارسال رایگان به سرتاسر کشور</p>
-                </div>
+        </div>
+        <div class="feature">
+            <i class="feather-award"></i>
+            <div>
+                <h1>ضمانت اصالت کالا</h1>
+                <p>تمامی کالاها به صورت اورجینال و با ضمانت اصل بودن ارائه می شود.</p>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="feature-item">
-                    <i class="feather-archive"></i>
-                    <h3>پیگیری آنی</h3>
-                    <p>سفارش داده اید ولی دریافت نکرده اید، بصورت آنی از وضعیت مرسوله باخبر شوید</p>
-                </div>
+        </div>
+        <div class="feature">
+            <i class="feather-shopping-bag"></i>
+            <div>
+                <h1>تنوع محصولات</h1>
+                <p>خرید از 300 برند بین المللی و ایرانی در هر ساعت شبانه روز و در هر نقطه از کشور برای شما فراهم شده است.</p>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="feature-item">
-                <i class="feather-award"></i>
-                    <h3>ضمانت اصالت کالا</h3>
-                    <p>نماینده برندها،با اطمینان از اورجینال بودن کالا خرید کنید.</p>
-                </div>
+        </div>
+        <div class="feature">
+            <i class="feather-trending-up"></i>
+            <div>
+                <h1>تعویض رایگان و مرجوع</h1>
+                <p>با خیال راحت میتوانید در صورت عدم رضایت، کالای خریداری شده را تعویض یا مرجوع نمایید.</p>
             </div>
         </div>
     </div>

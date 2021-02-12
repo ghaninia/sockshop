@@ -20,13 +20,13 @@
     font-weight: normal;
 }
 @font-face {
-    font-family: sahel;
+    font-family: sahel-bold;
     src: url("../fonts/sahel/sahel-bold.eot");
     src: url("../fonts/sahel/sahel-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/sahel/sahel-bold.woff") format("woff"), url("../fonts/sahel/sahel-bold.ttf") format("truetype");
     font-weight: bold;
 }
 @font-face {
-    font-family: sahel;
+    font-family: sahel-black;
     src: url("../fonts/sahel/sahel-black.eot");
     src: url("../fonts/sahel/sahel-black.eot?#iefix") format("embedded-opentype"), url("../fonts/sahel/sahel-black.woff") format("woff"), url("../fonts/sahel/sahel-black.ttf") format("truetype");
     font-weight: 900;
