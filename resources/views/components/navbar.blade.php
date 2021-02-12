@@ -1,4 +1,4 @@
-<header class="header-area fixed-top">
+<header class="header-area  fixed-top >
     <div class="nav-area host-nav-area">
         <div class="navbar-area">
             <div class="mobile-nav">
@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="main-nav">
-                <nav class="navbar navbar-expand-md">
+                 <nav class="navbar navbar-expand-lg navbar-light navbar-light-three">
                     <div class="container">
                         <a class="navbar-brand" href="{{ route('guest.main') }}">
                             <img src="{{ logo() }}" alt="{{ options('title') }}" />

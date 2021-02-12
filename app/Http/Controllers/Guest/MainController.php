@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Helpers\Traits\Response;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchStore;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -16,8 +17,9 @@ class MainController extends Controller
     public function index()
     {
         $this->seo([]);
-
-        return view('guest.main');
+        // $products = Product::with("variances")->get() ;
+        $categories = Category::with("products.variances")->get() ;
+        return view('guest.main' , compact("categories") );
     }
 
     public function store(Request $request)

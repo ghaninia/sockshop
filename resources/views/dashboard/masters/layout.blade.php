@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="{{ logo("favicon") }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ mix("assets/dashboard/css/bundle.css") }}" type="text/css">
     <link rel="stylesheet" href="{{ mix("assets/dashboard/css/app.css") }}" type="text/css">
-    <link rel="shortcut icon" href="{{ config("site.favicon") }}" type="image/x-icon">
     <script>
         const config = {
             token: '{{ csrf_token() }}',
