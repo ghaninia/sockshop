@@ -17,12 +17,16 @@ class DatabaseSeeder extends Seeder
             'email' => "info@ghaninia.ir",
             'password' => bcrypt("secret"),
         ]);
-
         Option::insert([
             [
                 "key"     => "title",
                 "value"   => NULL,
                 "default" => "پا بده",
+            ],
+            [
+                "key"     => "shop_title",
+                "value"   => NULL,
+                "default" => "درگاه خرید جوراب",
             ],
             [
                 "key"     => "description",

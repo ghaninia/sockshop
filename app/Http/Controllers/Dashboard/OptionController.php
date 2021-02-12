@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Helpers\Attachments\Attachment;
 use App\Helpers\Attachments\PublicDiskAttachment;
 use App\Helpers\Traits\Response;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OptionStore;
-use Illuminate\Http\Request;
 use App\Models\Option;
 
 class OptionController extends Controller
@@ -30,6 +28,7 @@ class OptionController extends Controller
         Option::put("support_phone", $request->input("support_phone"));
         Option::put("support_email", $request->input("support_email"));
         Option::put("shop_description", $request->input("shop_description"));
+        Option::put("shop_title", $request->input("shop_title"));
         Option::put("keywords", implode(",", $request->input("keywords", [])));
         if ($request->has("logo")) {
             $logo = $storage->upload("logo", "logo");

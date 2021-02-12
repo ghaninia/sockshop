@@ -37,6 +37,7 @@ Route::prefix("dashboard")->middleware("auth")->name("dashboard.")->group(functi
 });
 
 Route::namespace("Guest")->name("guest.")->group(function () {
+    Route::post("search" , [MainController::class , "search"] )->name("search") ;
     Route::get('/', [MainController::class, 'index'])->name('main');
     Route::post('/', [MainController::class, 'store'])->name('store');
 });

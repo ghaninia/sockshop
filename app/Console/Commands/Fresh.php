@@ -22,6 +22,7 @@ class Fresh extends Command
     {
         Artisan::call("migrate:refresh") ;
         Artisan::call("db:seed") ;
+        Artisan::call("storage:link") ;
         Artisan::call("clear-compiled") ;
         $storage->cleanRootFolder() ;
     }

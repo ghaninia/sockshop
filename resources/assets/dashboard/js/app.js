@@ -155,8 +155,6 @@ $(document).on("submit", "form", function (e) {
 });
 
 
-
-
 // forms submit
 $(function () {
     var elements = [

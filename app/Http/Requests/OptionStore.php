@@ -17,6 +17,7 @@ class OptionStore extends FormRequest
     {
         return [
             "title" => ["required", "max:255"],
+            "shop_title" => ["required", "max:255"],
             "description" => ["nullable"],
             "copyright" => ["nullable"],
             "support_mobile" => ["nullable" , new MobileRule() ],

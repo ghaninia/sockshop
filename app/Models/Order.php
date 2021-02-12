@@ -10,33 +10,33 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        "address_id" ,
-        "product_id" ,
-        "variance_id" ,
-        "fullname" ,
-        "mobile" ,
-        "price" ,
+        "address_id",
+        "product_id",
+        "variance_id",
+        "fullname",
+        "mobile",
+        "price",
+        "status",
 
-        "transaction_id" ,
-        "tracking_code" ,
-
-        "post_tracking_code" ,
+        "transaction_id",
+        "tracking_code",
+        "post_tracking_code",
         "post_trackinged_at"
-    ] ;
+    ];
 
     public $dates = [
         "post_trackinged_at"
-    ] ;
+    ];
 
-    const STATUS_SUCCEED = "STATUS_SUCCEED" ;
-    const STATUS_FAILED = "STATUS_FAILED" ;
-    const STATUS_INIT = "STATUS_INIT" ;
+    const STATUS_SUCCEED = "STATUS_SUCCEED";
+    const STATUS_FAILED = "STATUS_FAILED";
+    const STATUS_INIT = "STATUS_INIT";
 
     const STATUES = [
-        SELF::STATUS_SUCCEED ,
-        SELF::STATUS_FAILED ,
-        SELF::STATUS_INIT ,
-    ] ;
+        SELF::STATUS_SUCCEED,
+        SELF::STATUS_FAILED,
+        SELF::STATUS_INIT,
+    ];
 
     public function address()
     {

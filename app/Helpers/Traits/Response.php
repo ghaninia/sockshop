@@ -13,19 +13,18 @@ trait Response
         } else {
             $exec["msg"] = $info;
             $exec["ok"] = true;
-            return $exec;
+            return response()->json($exec);
         }
     }
 
     public function fail($info)
     {
         if (is_array($info)) {
-            $info["ok"] = true;
-            return response()->json($info);
+            $info["ok"] = false ;
+            return response()->json($info , 400 );
         } else {
             $exec["msg"] = $info;
-            $exec["ok"] = true;
-            return $exec;
-        }
+            $exec["ok"] = false;
+            return response()->json($exec , 400 );        }
     }
 }

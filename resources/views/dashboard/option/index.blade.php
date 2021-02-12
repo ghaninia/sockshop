@@ -8,6 +8,10 @@
             <input value="{{ options("title") }}" required type="text" name="title" id="title" class="form-control">
         </div>
         <div class="form-group">
+            <label for="shop_title">نام فروشگاه</label>
+            <input value="{{ options("shop_title") }}" required type="text" name="shop_title" id="shop_title" class="form-control">
+        </div>
+        <div class="form-group">
             <label for="description">توضیحات سایت</label>
             <textarea name="description" id="description" class="form-control">{{ options("description") }}</textarea>
         </div>
