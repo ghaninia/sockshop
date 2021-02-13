@@ -17,6 +17,10 @@ abstract class Attachment
             "H" => NULL,
             "W" => NULL
         ],
+        'medium' => [
+            "H" => NULL,
+            "W" => 350
+        ],
         'thumbnail' => [
             "H" => 200,
             "W" => 200,

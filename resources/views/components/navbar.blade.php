@@ -17,7 +17,7 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"> <a class="nav-link active" href="#home">خانه <span class="sr-only">(شما اینجا هستید)</span></a> </li>
                             <li class="nav-item"> <a class="nav-link" href="#features">خدمات ما</a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="#questions">سوال متداول</a> </li>
+                            <li class="nav-item"> <a class="nav-link" href="#products">محصولات</a> </li>
                         </ul>
                     </div>
                 </nav>

@@ -25,4 +25,15 @@ class Variance extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function getPrice()
+    {
+        return number_format( $this->price / 10 ) ;
+    }
+
+    public function getPriceUnit()
+    {
+        return "تومـان" ;
+    }
+
 }

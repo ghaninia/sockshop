@@ -1,9 +1,17 @@
-require("bootstrap");
 window.$ = window.jQuery = require('jquery');
-
-
+require("./plugins/wave")
+require("bootstrap");
 $(function() {
     "use strict";
+
+    $(document).on("submit", "form", function (e) {
+        var F = e.target;
+        if (!F.checkValidity()) {
+            e.preventDefault();
+            e.stopPropagation();
+            F.classList.add("was-validated");
+        }
+    });
 
     $(".features").each(function(e){
         var wrapper = $(this) ;

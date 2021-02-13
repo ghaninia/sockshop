@@ -17,8 +17,12 @@ class MainController extends Controller
     public function index()
     {
         $this->seo([]);
-        // $products = Product::with("variances")->get() ;
-        $categories = Category::with("products.variances")->get() ;
+        $categories = Category::with([
+            "products.variances" => function($query) {
+                return $query->orderBy("price" , "ASC") ;
+            }
+        ])->has('products')->get() ;
+
         return view('guest.main' , compact("categories") );
     }
 
