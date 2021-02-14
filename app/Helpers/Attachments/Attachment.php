@@ -87,7 +87,11 @@ abstract class Attachment
                         $width  = $parameter["W"];
                         // perform some modifications
 
-                        if (!!$width or !!$height) {
+                        if (!!$width and !!$height) {
+                            $image->resize($width, $height) ;
+                        }
+                        else if ( !!$width or !!$height )
+                        {
                             $image->resize($width, $height, function ($constraint) {
                                 $constraint->aspectRatio();
                                 $constraint->upsize();

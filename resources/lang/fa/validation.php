@@ -192,6 +192,9 @@ return [
         "variances.*.title" => "تیتر لیست واریانس",
         "variances.*.tooltip" => "خلاصه لیست واریانس",
         "variances.*.tipricetle" => "قیمت لیست واریانس",
+
+        'post_tracking_code' => 'کد رهگیری پست' ,
+        'post_trackinged_at' => 'تاریخ رهگیری پست'
     ],
 
 ];

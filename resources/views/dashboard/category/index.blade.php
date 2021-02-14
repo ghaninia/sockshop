@@ -19,7 +19,7 @@
                 <div class="col-lg-6">
                     <div class="item mb-3">
                         <div class="content">
-                            <small>{{ $category->name }}</small>
+                            <h5>{{ $category->name }}</h5>
                             <a href="{{ route("dashboard.categories.destroy" , $category->id ) }}" class="remove">
                                 <i class="feather-trash"></i>
                             </a>

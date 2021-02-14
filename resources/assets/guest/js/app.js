@@ -1,8 +1,29 @@
 window.$ = window.jQuery = require('jquery');
+slick = require("slick-carousel") ;
 require("./plugins/wave")
 require("bootstrap");
+
+
 $(function() {
     "use strict";
+
+    $(".redirect").each(function(){
+        var url = $(this).data("url") ;
+        setTimeout(() => {
+            window.location.href = url ;
+        }, 500 );
+    })
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    }) ;
+
+    $(".slick").slick({
+        rtl : true ,
+        dots : false ,
+        infinite: true,
+        lazyLoad: 'ondemand',
+    });
 
     $(document).on("submit", "form", function (e) {
         var F = e.target;

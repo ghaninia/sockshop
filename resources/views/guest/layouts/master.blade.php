@@ -20,6 +20,7 @@
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
     <x-header />
     @yield("main")
+    <x-footer />
     <script src="{{ mix("assets/guest/js/app.js") }}"></script>
 </body>
 

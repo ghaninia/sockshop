@@ -20,6 +20,9 @@ class MainController extends Controller
         $categories = Category::with([
             "products.variances" => function($query) {
                 return $query->orderBy("price" , "ASC") ;
+            } ,
+            "products" => function($query){
+                return $query->orderBy("created_at" , "DESC") ;
             }
         ])->has('products')->get() ;
 

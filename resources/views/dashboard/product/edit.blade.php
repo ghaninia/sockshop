@@ -1,6 +1,6 @@
 @extends("dashboard.masters.layout")
 @section("content")
-<form id="form" class="needs-validation settings" novalidate="" action="{{ route("dashboard.products.update" , $product->id) }}" method="POST" enctype="multipart/form-data">
+<form id="form" class="needs-validation settings" novalidate="" action="{{ route("dashboard.products.update" , $product->slug ) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method("put")
     <div class="item">

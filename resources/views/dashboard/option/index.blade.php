@@ -17,13 +17,40 @@
         </div>
         <div class="form-group">
             <label for="description">کلمات کلیدی سایت</label>
-            <div class="keywords __additive" data-old="{!! options("keywords") !!}"></div>
+            <div class="keywords __additive" data-old="{!! options(" keywords") !!}"></div>
         </div>
         <div class="form-group">
             <label for="copyright">کپی رایت سایت</label>
             <textarea name="copyright" id="copyright" class="form-control">{{ options("copyright") }}</textarea>
         </div>
         <hr>
+
+        <div class="form-row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="support_facebook">اکانت فیسبوک</label>
+                    <input value="{{ options("support_facebook") }}" id="support_facebook" name="support_facebook" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="support_twitter">اکانت توییتر</label>
+                    <input value="{{ options("support_twitter") }}" id="support_twitter" name="support_twitter" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="support_instagram">اکانت اینستاگرام</label>
+                    <input value="{{ options("support_instagram") }}" id="support_instagram" name="support_instagram" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="support_telegram">اکانت تلگرام</label>
+                    <input value="{{ options("support_telegram") }}" id="support_telegram" name="support_telegram" class="form-control">
+                </div>
+            </div>
+        </div>
         <div class="form-row">
             <div class="col-sm-4">
                 <div class="form-group">
@@ -56,6 +83,7 @@
                 <div data-oldest="{{ logo("favicon" , true ) }}" class="favicon __galleries mb-4"></div>
             </div>
         </div>
+
         <button class="btn primary">ذخیره تغییرات</button>
     </div>
 </form>

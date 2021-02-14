@@ -35,4 +35,6 @@ return [
             "label" => "از قاعده زبان فارسی پیروی نمی‌کند."
         ],
     ],
+    "notification" => "09114904505" ,
+    "address" => 200 // address length
 ];

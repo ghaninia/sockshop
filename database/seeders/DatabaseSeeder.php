@@ -72,7 +72,27 @@ class DatabaseSeeder extends Seeder
                 "key"     => "favicon",
                 "value"   => NULL,
                 "default" => NULL,
-            ]
+            ] ,
+            [
+                "key"     => "support_facebook",
+                "value"   => NULL,
+                "default" => NULL,
+            ],
+            [
+                "key"     => "support_twitter",
+                "value"   => NULL,
+                "default" => NULL,
+            ],
+            [
+                "key"     => "support_instagram",
+                "value"   => NULL,
+                "default" => NULL,
+            ],
+            [
+                "key"     => "support_telegram",
+                "value"   => NULL,
+                "default" => NULL,
+            ],
         ]);
     }
 }

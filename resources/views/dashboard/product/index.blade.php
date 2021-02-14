@@ -21,10 +21,10 @@
                 <div class="col-lg-6">
                     <div class="item mb-3">
                         <div class="content">
-                            <a href="{{ route("dashboard.products.edit" , $product->id ) }}">
-                                <small>{{ $product->title }}</small>
+                            <a href="{{ route("dashboard.products.edit" , $product->slug ) }}">
+                                <h5 class='d-block'>{{ $product->title }}</h5>
                             </a>
-                            <a href="{{ route("dashboard.products.destroy" , $product->id ) }}" class="remove">
+                            <a href="{{ route("dashboard.products.destroy" , $product->slug ) }}" class="remove">
                                 <i class="feather-trash"></i>
                             </a>
                             <div class="badge mb-0 badge-warning rounded">

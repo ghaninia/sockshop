@@ -23,12 +23,14 @@
     <div class="row products">
         @foreach($category->products as $product)
         @php($gallery = gallery($product , "medium") )
-        <div class="col-lg-4 col-sm-6 col-xs-12">
+        <div class="col-lg-4 col-sm-6 col-xs-12" id="{{ $product->slug }}">
             <div class="product">
                 @if(count($gallery))
-                <div class="slider">
+                <div class="slider slick">
                     @foreach($gallery as $pic)
-                    <img src="{{ $pic }}" alt="{{ $product->summary }}" title="{{ $product->title }}">
+                    <div class="slide">
+                        <img src="{{ $pic }}" alt="{{ $product->summary }}" title="{{ $product->title }}">
+                    </div>
                     @endforeach
                 </div>
                 @else
@@ -47,7 +49,7 @@
                     <div class="variances">
                         @foreach($product->variances as $variance)
                         <input name="variance" id="variance__{{ $variance->id }}" {{ $loop->index == 0 ? 'checked' : NULL  }} class="hidden" type="radio" value="{{ $variance->id }}">
-                        <label class="variance" for="variance__{{ $variance->id }}">
+                        <label data-toggle="tooltip" data-placement="top" title="{{ $variance->tooltip }}" class="variance" for="variance__{{ $variance->id }}">
                             <div class="title">{{ $variance->title }}</div>
                             <div class="price">
                                 <span>{{ $variance->getPrice() }}</span>
@@ -57,9 +59,9 @@
                         @endforeach
                     </div>
                     <div class="has-float-label form-group">
-                        <input required class="form-control" name="fullname" placeholder="نام و نام خانوادگی" />
+                        <input pattern="{{ config('site.regex.persian.front') }}" required class="form-control" name="fullname" placeholder="نام و نام خانوادگی" />
                         <label><i class="feather-user"></i></label>
-                        <div class="invalid-feedback">نام و نام خانوادگی الزامی می‌باشد.</div>
+                        <div class="invalid-feedback">نام و نام خانوادگی باید فقط شامل کلمات فارسی باشد.</div>
                     </div>
                     <div class="has-float-label form-group">
                         <input required pattern="{{ config('site.regex.mobile.front') }}" class="form-control" pattern="{{ config('site.regex.mobile.front') }}" name="mobile" placeholder="شماره موبایل" />
@@ -67,9 +69,9 @@
                         <div class="invalid-feedback">فرمت شماره موبایل صحیح نمی‌باشد.</div>
                     </div>
                     <div class="has-float-label form-group">
-                        <textarea rows="3" required class="form-control" name="address" placeholder="نشانی ارسال (مثال : تهران ،لویزان، شهرک نفت، پلاک 1)"></textarea>
+                        <textarea maxlength="{{ config('site.address') }}" rows="3" required class="form-control" name="address" placeholder="نشانی ارسال (مثال : تهران ،لویزان، شهرک نفت، پلاک 1)"></textarea>
                         <label><i class="feather-map"></i></label>
-                        <div class="invalid-feedback">نشانی ارسال الزامی می‌باشد.</div>
+                        <div class="invalid-feedback">نشانی ارسال الزامی می‌باشد.حداکثر 200 کاراکتر می‌باشد</div>
                     </div>
                     <button class="bg-gradient waves-effect waves-light">
                         <span>ثبت سفارش</span>

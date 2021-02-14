@@ -165,10 +165,12 @@ return [
         /*
          * Package Service Providers...
          */
-        Shetabit\Payment\Provider\PaymentServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class ,
         GhaniniaIR\Captcha\CaptchaServiceProvider::class ,
+        Shetabit\Payment\Provider\PaymentServiceProvider::class,
+        Pamenary\LaravelSms\Laravel\SmsServiceProvider::class,
+        Hekmatinasser\Verta\VertaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,8 +233,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Payment' => Shetabit\Payment\Facade\Payment::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class ,
+        'Payment' => Shetabit\Payment\Facade\Payment::class,
+        'Sms' => Pamenary\LaravelSms\Laravel\Facade\Sms::class,
+        'Verta' => Hekmatinasser\Verta\Verta::class,
+
     ]
 ];

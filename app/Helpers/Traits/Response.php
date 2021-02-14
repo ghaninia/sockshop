@@ -2,6 +2,8 @@
 
 namespace App\Helpers\Traits;
 
+use Hekmatinasser\Verta\Facades\Verta;
+
 trait Response
 {
 
@@ -27,4 +29,9 @@ trait Response
             $exec["ok"] = false;
             return response()->json($exec , 400 );        }
     }
+
+    public function jalaliToDatetime( $date ) {
+        return Verta::parseFormat('Y/m/d', $date )->datetime() ;
+    }
+
 }

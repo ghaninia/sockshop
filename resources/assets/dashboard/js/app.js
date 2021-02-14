@@ -5,7 +5,7 @@ require("bootstrap");
 window.$ = window.jQuery = require('jquery');
 require("./plugins/gallery");
 require("./plugins/additive");
-
+require("./plugins/persian-selector");
 window.axios = require('axios');
 const Nprogress = require("nprogress");
 const toastr = require("toastr");
@@ -349,6 +349,16 @@ $(function () {
         wrapper.on("click", "li .remove", function () {
             var li = $(this).closest("li");
             li.remove();
+        });
+    });
+});
+
+
+$(function () {
+    $('.date').on('click', function (e) {
+        e.preventDefault();
+        $.dateSelect.show({
+            element: $(this)
         });
     });
 });

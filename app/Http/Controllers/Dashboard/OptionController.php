@@ -27,9 +27,17 @@ class OptionController extends Controller
         Option::put("support_mobile", $request->input("support_mobile"));
         Option::put("support_phone", $request->input("support_phone"));
         Option::put("support_email", $request->input("support_email"));
+
+        // social
+        Option::put("support_facebook", $request->input("support_facebook"));
+        Option::put("support_twitter", $request->input("support_twitter"));
+        Option::put("support_instagram", $request->input("support_instagram"));
+        Option::put("support_telegram", $request->input("support_telegram"));
+
         Option::put("shop_description", $request->input("shop_description"));
         Option::put("shop_title", $request->input("shop_title"));
         Option::put("keywords", implode(",", $request->input("keywords", [])));
+
         if ($request->has("logo")) {
             $logo = $storage->upload("logo", "logo");
             Option::put("logo", json_encode($logo));

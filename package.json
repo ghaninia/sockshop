@@ -20,7 +20,9 @@
     },
     "dependencies": {
         "nprogress": "^0.2.0",
+        "persian-date": "^1.1.0",
         "selectric": "^1.13.0",
+        "slick-carousel": "^1.8.1",
         "toastr": "^2.1.4"
     }
 }

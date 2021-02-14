@@ -4,6 +4,7 @@ use App\Helpers\Attachments\Attachment;
 use App\Models\File;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Option;
+use App\Models\Order;
 use Illuminate\Support\Arr;
 
 function avatar()
@@ -61,4 +62,17 @@ function logo($type = "logo" , $notPreview = false ,  $size = "thumbnail")
 function array_random($array)
 {
     return Arr::random( $array ) ;
+}
+
+
+function orderStatus($status){
+    switch( $status ){
+        case Order::STATUS_FAILED :
+            return "پرداخت نشده" ;
+        case Order::STATUS_SUCCEED :
+            return "پرداخت شده" ;
+        case Order::STATUS_INIT :
+            return "منتظر تسویه" ;
+
+    }
 }

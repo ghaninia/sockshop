@@ -17,7 +17,7 @@ class Order extends Model
         "mobile",
         "price",
         "status",
-
+        "reference_id" ,
         "transaction_id",
         "tracking_code",
         "post_tracking_code",
@@ -40,7 +40,7 @@ class Order extends Model
 
     public function address()
     {
-        return $this->hasOne(Address::class);
+        return $this->belongsTo(Address::class);
     }
 
     public function product()

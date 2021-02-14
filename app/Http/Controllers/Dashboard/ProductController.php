@@ -113,6 +113,10 @@ class ProductController extends Controller
         ]);
         $product->categories()->sync($request->input("categories", []));
 
+
+        if ($request->has("picture"))
+            File::upload($product, "picture", "picture");
+
         $galleries = $request->file("galleries");
         //delete different
         if ($request->has("previous_galleries")) {
@@ -123,6 +127,8 @@ class ProductController extends Controller
                 foreach ($diff as $item) {
                     $product->files()->where("files.url", "like", "%" . basename($item))->delete();
                 }
+        }else{
+            $product->files()->where("usage" , "gallery")->delete() ;
         }
 
         $complationGalleries = [];
