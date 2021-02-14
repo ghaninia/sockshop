@@ -49,7 +49,7 @@
                     <div class="variances">
                         @foreach($product->variances as $variance)
                         <input name="variance" id="variance__{{ $variance->id }}" {{ $loop->index == 0 ? 'checked' : NULL  }} class="hidden" type="radio" value="{{ $variance->id }}">
-                        <label data-toggle="tooltip" data-placement="top" title="{{ $variance->tooltip }}" class="variance" for="variance__{{ $variance->id }}">
+                        <label data-toggle="tooltip" data-placement="top" title="{{ $variance->tooltip }}" class="variance waves-effect waves-light" for="variance__{{ $variance->id }}">
                             <div class="title">{{ $variance->title }}</div>
                             <div class="price">
                                 <span>{{ $variance->getPrice() }}</span>
