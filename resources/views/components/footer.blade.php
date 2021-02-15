@@ -1,10 +1,10 @@
-<div class="dark-bg pt-3 pb-2" id="contact" tabindex="-1">
+<footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <p class="pt-2 text-white copyright_txt">
+                <div class="copyright">
                     {{ options('copyright') }}
-                </p>
+                </div>
             </div>
             <div class="col-lg-6">
                 <div class="social-icons">
@@ -23,8 +23,9 @@
                     @if(!! options('support_email'))
                     <a href="mailto:{{ options('support_email') }}"><span class="feather-mail"></span></a>
                     @endif
+                    <a href="{{ route('guest.sitemap') }}"><span class="feather-rss"></span></a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</footer>

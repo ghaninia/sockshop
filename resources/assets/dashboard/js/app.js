@@ -10,6 +10,8 @@ window.axios = require('axios');
 const Nprogress = require("nprogress");
 const toastr = require("toastr");
 const selectric = require("selectric");
+const Chart = require("chart.js");
+
 if (config.token) {
     window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = config.token;
@@ -250,12 +252,12 @@ $(function () {
         el: "logo",
         unit: 1,
         label: "لوگو وبسایت"
-    }) ;
+    });
     $(".favicon").gallery({
         el: "favicon",
         unit: 1,
         label: "فاوآیکون وبسایت"
-    }) ;
+    });
     $(".keywords").each(function () {
         $(this).additive({
             element: "keywords",
@@ -292,7 +294,7 @@ $(function () {
     $(".prices").each(function () {
         var wrapper = $(this),
             name = "variances",
-            oldestItems = wrapper.data("oldest") ,
+            oldestItems = wrapper.data("oldest"),
             templates = {
                 li: `
                     <li>
@@ -335,9 +337,9 @@ $(function () {
             };
 
         wrapper.html(templates.appendBtn);
-        if( oldestItems && oldestItems.length ){
-            oldestItems.map(function(item){
-                liGenerate(item) ;
+        if (oldestItems && oldestItems.length) {
+            oldestItems.map(function (item) {
+                liGenerate(item);
             });
         }
 
@@ -360,5 +362,55 @@ $(function () {
         $.dateSelect.show({
             element: $(this)
         });
+    });
+});
+
+$(function () {
+    $(".chart-line").each(function () {
+        var items = $(this).data('items');
+        var chart = $(this);
+        chart = chart[0].getContext('2d');
+
+        var Xlist = [];
+        items.map(function (item) {
+            Xlist.push(item.x);
+        });
+
+        chart = new Chart(chart, {
+            type: 'line',
+            options: {
+                responsive: true,
+                legend: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            stepSize: 1,
+                            beginAtZero: true,
+                        },
+                        gridLines: {
+                            display: false
+                        },
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false ,
+                            autoSkip: false,
+                            maxRotation: 100,
+                            minRotation: 100
+                        }
+                    }]
+                },
+            },
+            data: {
+                labels: Xlist,
+                datasets: [{
+                    label: "فروش",
+                    borderColor: "#48D683",
+                    fill: false
+                }],
+            },
+        });
+        chart.data.datasets[0].data = items;
+        chart.update();
     });
 });

@@ -84,4 +84,5 @@
     </div>
     @endforeach
 </div>
+<x-question />
 @stop

@@ -25,7 +25,7 @@ class MainController extends Controller
                 return $query->orderBy("created_at" , "DESC") ;
             }
         ])->has('products')->get() ;
-
+            
         return view('guest.main' , compact("categories") );
     }
 

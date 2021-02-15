@@ -6,21 +6,20 @@ use Illuminate\View\Component;
 
 class Question extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
+    public $questions ;
     public function __construct()
     {
-        //
+        $this->questions = [
+            [
+                "title" => "روش ثبت سفارش کالا چگونه است؟" ,
+                "description" => "برای خرید از سایت بازاراتو ابتدا پس از انتخاب کالای موردنظر، آنرا به سبد خرید اضافه و مراحل خرید اینترنتی را به ترتیب تکمیل نمایید. حتمادر زمان ثبت سفارش مربوطه، تعداد، نوع، رنگ، جنس، اندازه و مبلغ نهایی، نام کالای مربوطه را به دقت بررسی و اطمینان حاصل نمایید. پس از آن از طرف تیم پشتیبانی مشتریان بازاراتو بوسیله پیامک و یا سایر خواهد شد."
+            ],
+            [
+                "title" => "در چه ساعاتی از شبانه روز امکان ثبت سفارش وجود دارد؟" ,
+                "description" => "در تمامی ساعات شبانه روز امکان ثبت سفارش وجود دارد. تیم کارشناسان بازاراتو در اسرع وقت و کوتاه ترین زمان ممکن برای پیگیریسفارش کالای شما اقدام می نمایند و تایید سفارش را برای شما پیامک می کنند."
+            ],
+        ] ;
     }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
     public function render()
     {
         return view('components.question');

@@ -40,7 +40,7 @@ Route::prefix("dashboard")->middleware("auth")->name("dashboard.")->group(functi
 });
 
 Route::namespace("Guest")->name("guest.")->group(function () {
-    Route::get('sitemap.xml', [SitemapController::class, "sitemap"]);
+    Route::get('sitemap.xml', [SitemapController::class, "sitemap"])->name('sitemap');
     Route::get("product/{product}", [GuestProductController::class, 'show'])->name("product");
     Route::middleware("throttle:60,1")->prefix("order")->name("order.")->group(function () {
         Route::get("factor", [GuestOrderController::class, "factor"])->name("factor");

@@ -1531,7 +1531,7 @@ a.dropdown-item {
 }
 
 .settings {
-    padding: 80px 0
+    padding: 80px 0 20px
 }
 
 .settings h3 {
@@ -2621,4 +2621,47 @@ ul.factor li span:nth-of-type(2){
     ul.factor li span:nth-of-type(1){
         border-bottom: 1px rgba(0,0,0,0.1) solid ;
     }
+}
+
+.detail{
+    display: flex ;
+    align-items: center ;
+    justify-content: space-between ;
+    height: auto ;
+    background: #fff ;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgb(0 0 0 / 3%);
+    border-radius: 10px ;
+    margin : 10px 0
+}
+
+.detail span{
+    font-size  : 20px ;
+    font-family: 'Courier New', Courier, monospace;
+}
+@media(max-width : 720px ){
+    .detail h5 {
+        font-size : 14px
+    }
+    .detail span {
+        font-size: 12px ;
+    }
+}
+
+.price{
+    position: relative;
+}
+.price:after{
+    content: "ریــال";
+    position: absolute;
+    top: -24px;
+    left: 0;
+    font-family: iransans ;
+    font-size: 12px;
+    background: #eee;
+    color: #000;
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-weight: normal ;
 }
