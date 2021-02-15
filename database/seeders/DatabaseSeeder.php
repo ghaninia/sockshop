@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
                 "key"     => "favicon",
                 "value"   => NULL,
                 "default" => NULL,
-            ] ,
+            ],
             [
                 "key"     => "support_facebook",
                 "value"   => NULL,

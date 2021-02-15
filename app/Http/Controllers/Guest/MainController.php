@@ -7,8 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchStore;
 use App\Models\Category;
 use App\Models\Order;
-use App\Models\Product;
-use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -18,19 +16,15 @@ class MainController extends Controller
     {
         $this->seo([]);
         $categories = Category::with([
-            "products.variances" => function($query) {
-                return $query->orderBy("price" , "ASC") ;
-            } ,
-            "products" => function($query){
-                return $query->orderBy("created_at" , "DESC") ;
+            "products.variances" => function ($query) {
+                return $query->orderBy("price", "ASC");
+            },
+            "products" => function ($query) {
+                return $query->orderBy("created_at", "DESC");
             }
-        ])->has('products')->get() ;
-            
-        return view('guest.main' , compact("categories") );
-    }
+        ])->has('products')->get();
 
-    public function store(Request $request)
-    {
+        return view('guest.main', compact("categories"));
     }
 
     public function search(SearchStore $request)
@@ -40,7 +34,9 @@ class MainController extends Controller
         $order = Order::where([
             "mobile" => $mobile,
             "tracking_code" => $trackingCode
-        ])->first();
+        ])
+            ->whereStatus(Order::STATUS_SUCCEED)
+            ->first();
 
         if (is_null($order))
             return $this->fail("هیچ تراکنشی ثبت نشده است !");

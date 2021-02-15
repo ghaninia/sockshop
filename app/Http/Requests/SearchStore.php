@@ -16,7 +16,8 @@ class SearchStore extends FormRequest
     {
         return [
             "mobile" => ["required" , new MobileRule() ] ,
-            "tracking_code" => ["required" , "string"]
+            "tracking_code" => ["required" , "string"] ,
+            "captcha" => ["required" , "captcha"]
         ];
     }
 }

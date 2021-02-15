@@ -85,4 +85,5 @@
     @endforeach
 </div>
 <x-question />
+<x-tracking />
 @stop

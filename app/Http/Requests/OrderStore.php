@@ -18,7 +18,7 @@ class OrderStore extends FormRequest
     {
         $variances = $this->route("product")->variances()->pluck("id")->toArray() ;
         return [
-            "variance" => ["required" , "numeric", Rule::in($variances) ] ,
+            "variance" => ["required" , "numeric" , Rule::in($variances) ] ,
             "fullname" => ["required" , new PersianCharRule() ] ,
             "mobile" => ["required" , new MobileRule() ] ,
             "address" => ["required" , "max:".config('site.address') ]

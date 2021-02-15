@@ -11,7 +11,7 @@
                 <div class="accordion-container">
                     @foreach($questions as $question)
                     <div class="set {{ !$loop->index ? 'active' : null }}">
-                        <div class="title waves-effect waves-dark">
+                        <div class="title">
                             @if(isset($question['title']))
                                 {{ $question['title'] }}
                             @endif

@@ -47,5 +47,5 @@ Route::namespace("Guest")->name("guest.")->group(function () {
         Route::post("{product}", [GuestOrderController::class, "store"])->name("store");
     });
     Route::get('/', [MainController::class, 'index'])->name('main');
-    Route::post('/', [MainController::class, 'store'])->name('store');
+    Route::post('search', [MainController::class, 'search'])->middleware("throttle:30,1")->name('search');
 });

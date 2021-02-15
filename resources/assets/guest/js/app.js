@@ -1,12 +1,142 @@
 window.$ = window.jQuery = require('jquery');
 slick = require("slick-carousel");
+window.axios = require('axios');
+const Nprogress = require("nprogress");
+const toastr = require("toastr");
 require("./plugins/wave")
 require("bootstrap");
 
 $(function () {
     "use strict";
 
+    $(document).on("submit", "form", function (e) {
+        var F = e.target;
+        if (!F.checkValidity()) {
+            e.preventDefault();
+            e.stopPropagation();
+            F.classList.add("was-validated");
+        }
+    });
 
+    toastr.options = {
+        timeOut: 1000,
+        progressBar: true,
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+        showDuration: 200,
+        hideDuration: 200,
+        positionClass: "toast-top-left",
+        rtl: true,
+        onHidden: null
+    };
+
+    function stepMessage(errors, length, step = 0, callback = null) {
+        // if( step == length ){
+        // callback(errors) ;
+        // }
+        if (length > step) {
+            var KEY = Object.keys(errors)[step];
+            var ERR = errors[KEY][0];
+            toastr.error(ERR, null, {
+                onHidden: function () {
+                    stepMessage(errors, length, step + 1);
+                    if (callback != null) {
+                        callback(errors);
+                    }
+
+                }
+            });
+        }
+    }
+
+    function __sucessMessage(response, callback) {
+        const { ok, msg } = response;
+        if (ok && msg.length) {
+            return toastr.success(msg, null, {
+                onHidden: function () {
+                    callback(response);
+                }
+            });
+        } else {
+            return callback(response);
+        }
+    }
+
+
+    function __errorMessage(err, callback = null) {
+        const { ok, msg } = err.response.data;
+        if (msg && ok == false) {
+            toastr.error(msg, null, {
+                onHidden: function () {
+                    callback != null ? callback(msg) : null;
+                }
+            });
+        } else {
+            const { errors, message } = err.response.data
+            if (errors != undefined) {
+                stepMessage(errors, Object.keys(errors).length, 0, callback);
+            } else {
+                toastr.error(message, null, {
+                    onHidden: function () {
+                        callback != null ? callback(message) : null;
+                    }
+                });
+            }
+        }
+    }
+
+    function PostFormResponse(action, formData = null, success, failed = null) {
+        Nprogress.start();
+        axios.post(action, formData).then(function (response) {
+            const { data } = response;
+            Nprogress.done();
+            return success(data);
+        }).catch(function (errors) {
+            Nprogress.done();
+            return failed ? failed(errors) : null;
+        });
+    }
+
+
+    $(".tracking").each(function () {
+        var wrapper = $(this),
+            content = $(".content");
+
+        $("form", wrapper).submit(function (e) {
+            e.preventDefault();
+            var form = $(this),
+                btn = $("button", form) ,
+                captcha = $(".captcha img" , form ) ,
+                action = $(this).attr('action') ,
+                data = new FormData(form[0]);
+            if (form[0].checkValidity()) {
+                btn.prop('disabled', true);
+                PostFormResponse(action, data,
+                    function (response) {
+                        const { content : context  } = response;
+                        content.removeClass("hidden").html( context );
+                        btn.prop('disabled', false );
+                        captcha.click() ;
+                    },
+                    function (errors) {
+                        __errorMessage(errors , function(){
+                            content.html("").addClass("hidden") ;
+                            btn.prop('disabled', false );
+                            captcha.click() ;
+                        });
+                    }
+                );
+            }
+        });
+    });
+
+
+    $(".form-group.captcha img").click(function () {
+        var wrapper = $(this).closest(".form-group");
+        $('input[name="captcha"]', wrapper).val("");
+        var src = $(this).attr("src").split("?")[0];
+        $(this).attr("src", src + '?' + Math.floor(Math.random() * 100));
+    });
 
     $(".accordion-container").each(function () {
         var wrapper = $(this);
@@ -38,14 +168,7 @@ $(function () {
         lazyLoad: 'ondemand',
     });
 
-    $(document).on("submit", "form", function (e) {
-        var F = e.target;
-        if (!F.checkValidity()) {
-            e.preventDefault();
-            e.stopPropagation();
-            F.classList.add("was-validated");
-        }
-    });
+
 
     $(".features").each(function (e) {
         var wrapper = $(this);
